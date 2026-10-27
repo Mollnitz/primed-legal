@@ -4,7 +4,8 @@ title: Primed privacy policy
 
 # Primed privacy policy
 
-**Effective date:** 26 October 2026
+**Effective date:** 26 October 2026  
+**Last updated:** 27 October 2026 (the permissions list now names every permission the installed app requests)
 
 Primed is an Android app that records when you trained each muscle group and tells you when its cooldown has passed. In this policy, "I" and "me" mean Primed's developer.
 
@@ -32,6 +33,11 @@ The home-screen widget reads the same data on your device. None of this is sent 
 - **Run at startup** (`RECEIVE_BOOT_COMPLETED`): to reschedule those reminders after your phone restarts.
 
 Reminders are scheduled locally with Android's alarm service. No server is involved.
+
+The home-screen widget uses Android's WorkManager library to redraw itself, and that library adds three more permissions to the app:
+
+- **Prevent the phone from sleeping** (`WAKE_LOCK`) and **run foreground service** (`FOREGROUND_SERVICE`): so the widget can finish redrawing in the background.
+- **View network connections** (`ACCESS_NETWORK_STATE`): lets the library check whether the phone is online. Primed never uses the network, and because it has no `INTERNET` permission it cannot send anything.
 
 ## Backups and export files
 
